@@ -1094,5 +1094,5 @@ p { text-wrap: pretty; }
 [class*="price"] {
   direction: ltr !important;
   text-align: right;
-  unicode-bidi: bidi-override;
+  unicode-bidi: plaintext;
 }
