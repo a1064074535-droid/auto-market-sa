@@ -174,7 +174,7 @@ function renderPage(page) {
       <td style="color:#94a3b8;">${car.make_ar || car.brand || ''}</td>
       <td style="color:#94a3b8;">${car.year || ''}</td>
       <td style="color:#94a3b8;">${car.body_type || car.category || ''}</td>
-      <td class="price-cell">${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ﷼</td>
+      <td class="price-cell">${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} ر.س</td>
       <td><span class="badge ${fuelClass}">${fuelLabel}</span></td>
       <td>
         <button class="btn-delete" onclick="openDeleteConfirm(${car.id})">🗑️</button>
