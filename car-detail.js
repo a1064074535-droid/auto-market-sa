@@ -60,7 +60,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== HELPERS =====
-function formatPrice(p) { return p.toLocaleString('en-US') + ' ﷼'; }
+function formatPrice(p) { return p.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ﷼'; }
 
 function buildWaMsg(car) {
   const nameAr = car.nameAr || `${car.make_ar} ${car.model_ar}`;
@@ -252,7 +252,7 @@ function renderRelated(currentCar) {
         </div>
         <div class="car-card-body">
           <h3 class="car-card-name">${nameAr}</h3>
-          <div class="car-card-price" dir="ltr"><span>﷼</span>${price.toLocaleString('en-US')}</div>
+          <div class="car-card-price" dir="ltr"><span>﷼</span>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
           <div class="car-card-footer" onclick="event.stopPropagation()">
             <a href="car.html?id=${car.id}" class="btn-details">التفاصيل</a>
             <a href="https://wa.me/966545888559?text=${waMsg}" target="_blank" rel="noopener" class="btn-wa">واتساب</a>
