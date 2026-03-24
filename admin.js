@@ -101,8 +101,8 @@ function renderStats() {
   const prices = adminCars.map(c => c.price_sar || c.price || 0).filter(p => p > 0);
   document.getElementById('stat-total').textContent  = adminCars.length;
   document.getElementById('stat-brands').textContent = brands.size;
-  document.getElementById('stat-min-price').textContent = Math.min(...prices).toLocaleString('ar-SA');
-  document.getElementById('stat-max-price').textContent = Math.max(...prices).toLocaleString('ar-SA');
+  document.getElementById('stat-min-price').textContent = Math.min(...prices).toLocaleString('en-US');
+  document.getElementById('stat-max-price').textContent = Math.max(...prices).toLocaleString('en-US');
 }
 
 // ═══════════════════════════════════
@@ -174,7 +174,7 @@ function renderPage(page) {
       <td style="color:#94a3b8;">${car.make_ar || car.brand || ''}</td>
       <td style="color:#94a3b8;">${car.year || ''}</td>
       <td style="color:#94a3b8;">${car.body_type || car.category || ''}</td>
-      <td class="price-cell">${price.toLocaleString('ar-SA')} ﷼</td>
+      <td class="price-cell">${price.toLocaleString('en-US')} ﷼</td>
       <td><span class="badge ${fuelClass}">${fuelLabel}</span></td>
       <td>
         <button class="btn-delete" onclick="openDeleteConfirm(${car.id})">🗑️</button>
