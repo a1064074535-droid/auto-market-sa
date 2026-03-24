@@ -3,7 +3,6 @@ function toEnglishNums(str) {
   if (typeof str !== 'string') str = String(str);
   return str.replace(/[٠١٢٣٤٥٦٧٨٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 }
-// Run after DOM renders to fix any remaining Arabic numerals
 function fixAllNumerals() {
   document.querySelectorAll('*').forEach(el => {
     if (el.children.length === 0 && el.textContent) {
