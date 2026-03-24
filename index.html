@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="أوتو ماركت - منصة السيارات الرائدة في المملكة العربية السعودية. اكتشف أفضل السيارات الجديدة بأسعار تنافسية.">
+<title>أوتو ماركت - السيارات في المملكة العربية السعودية</title>
+
+<!-- Fonts: Tajawal (Arabic) + Cabinet Grotesk (English) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            50: '#eef2ff',
+            100: '#e0e7ff',
+            200: '#c7d2fe',
+            300: '#a5b4fc',
+            400: '#818cf8',
+            500: '#0c2340',
+            600: '#0a1d36',
+            700: '#08172c',
+            800: '#061222',
+            900: '#040d18',
+            950: '#020a14'
+          },
+          gold: {
+            50: '#fffbeb',
+            100: '#fef3c7',
+            200: '#fde68a',
+            300: '#fcd34d',
+            400: '#fbbf24',
+            500: '#c9922a',
+            600: '#b07d20',
+            700: '#926818',
+            800: '#745310',
+            900: '#563e0c',
+          }
+        },
+        fontFamily: {
+          arabic: ['Tajawal', 'sans-serif'],
+          display: ['Cabinet Grotesk', 'Tajawal', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="font-arabic bg-gray-50 text-gray-900" id="top">
+
+<!-- ===== HEADER ===== -->
+<header class="site-header sticky top-0 z-50" id="main-header">
+  <div class="header-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Logo -->
+    <a href="index.html" class="logo-link" aria-label="أوتو ماركت - الصفحة الرئيسية">
+      <svg class="logo-icon" viewBox="0 0 52 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="40" height="28">
+        <rect x="4" y="14" width="44" height="14" rx="4" fill="currentColor" opacity="0.15"/>
+        <path d="M10 14 L14 7 L38 7 L46 14" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+        <rect x="4" y="14" width="44" height="13" rx="4" stroke="currentColor" stroke-width="2.5" fill="none"/>
+        <circle cx="13" cy="29" r="5" stroke="currentColor" stroke-width="2.5" fill="none"/>
+        <circle cx="39" cy="29" r="5" stroke="currentColor" stroke-width="2.5" fill="none"/>
+        <line x1="18" y1="29" x2="34" y2="29" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <span class="logo-text">أوتو ماركت</span>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="header-nav" role="navigation" aria-label="القائمة الرئيسية">
+      <a href="index.html" class="nav-link active">السيارات</a>
+      <a href="#brands" class="nav-link">الماركات</a>
+      <a href="#contact" class="nav-link">تواصل معنا</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header-actions">
+      <a href="https://wa.me/966545888559" target="_blank" rel="noopener" class="whatsapp-cta" aria-label="تواصل عبر واتساب">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>واتساب</span>
+      </a>
+      <button data-theme-toggle class="theme-toggle" aria-label="تغيير المظهر">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero-section">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>المنصة الرائدة للسيارات في السعودية</span>
+      </div>
+      <h1 class="hero-title">اكتشف سيارتك <span class="hero-title-accent">المثالية</span></h1>
+      <p class="hero-subtitle">أكثر من 20 سيارة من أشهر الماركات العالمية بأسعار تنافسية وخدمة تواصل فورية عبر واتساب</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">20+</span>
+          <span class="hero-stat-label">سيارة متاحة</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">10</span>
+          <span class="hero-stat-label">ماركة عالمية</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">24/7</span>
+          <span class="hero-stat-label">دعم فوري</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-wrap" aria-hidden="true">
+      <div class="hero-car-graphic">
+        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=900&q=85" alt="سيارة فاخرة" class="hero-car-img">
+        <div class="hero-car-badge">
+          <div class="hero-car-badge-dot"></div>
+          <span>متاح للبيع الآن</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wave bottom -->
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none"><path d="M0 60L1440 0V60H0Z" fill="var(--color-bg-page)"/></svg>
+  </div>
+</section>
+
+<!-- ===== FILTERS ===== -->
+<section class="filters-section" id="cars" aria-label="فلاتر البحث">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="filters-header">
+      <div>
+        <h2 class="filters-title">تصفح السيارات</h2>
+        <p class="filters-subtitle" id="results-count">يتم عرض جميع السيارات</p>
+      </div>
+      <button class="reset-filters-btn" id="reset-filters" onclick="resetFilters()" aria-label="إعادة تعيين الفلاتر">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        إعادة تعيين
+      </button>
+    </div>
+
+    <div class="filters-grid" role="search" aria-label="خيارات الفلترة">
+      <!-- Search -->
+      <div class="filter-group filter-search">
+        <label for="search-input" class="filter-label">بحث</label>
+        <div class="search-input-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="search-input" class="filter-input search-input" placeholder="ابحث عن ماركة أو موديل..." oninput="applyFilters()" aria-label="بحث عن سيارة">
+        </div>
+      </div>
+
+      <!-- Brand -->
+      <div class="filter-group">
+        <label for="filter-brand" class="filter-label">الماركة</label>
+        <select id="filter-brand" class="filter-select" onchange="applyFilters()" aria-label="اختر الماركة">
+          <option value="">جميع الماركات</option>
+          <option value="toyota">تويوتا</option>
+          <option value="hyundai">هيونداي</option>
+          <option value="kia">كيا</option>
+          <option value="nissan">نيسان</option>
+          <option value="infiniti">إنفينيتي</option>
+          <option value="mercedes">مرسيدس</option>
+          <option value="bmw">بي ام دبليو</option>
+          <option value="lexus">لكزس</option>
+          <option value="audi">أودي</option>
+          <option value="jeep">جيب</option>
+          <option value="ford">فورد</option>
+          <option value="chevrolet">شيفروليه</option>
+          <option value="geely">جيلي</option>
+          <option value="mg">MG</option>
+          <option value="chery">شيري</option>
+          <option value="peugeot">بيجو</option>
+          <option value="jac">جاك</option>
+          <option value="volkswagen">فولكسفاغن</option>
+          <option value="honda">هوندا</option>
+          <option value="suzuki">سوزوكي</option>
+        </select>
+      </div>
+
+      <!-- Price -->
+      <div class="filter-group">
+        <label for="filter-price" class="filter-label">نطاق السعر</label>
+        <select id="filter-price" class="filter-select" onchange="applyFilters()" aria-label="اختر نطاق السعر">
+          <option value="">جميع الأسعار</option>
+          <option value="0-80000">أقل من 80,000 ﷼</option>
+          <option value="80000-120000">80,000 - 120,000 ﷼</option>
+          <option value="120000-200000">120,000 - 200,000 ﷼</option>
+          <option value="200000-300000">200,000 - 300,000 ﷼</option>
+          <option value="300000-999999">أكثر من 300,000 ﷼</option>
+        </select>
+      </div>
+
+      <!-- Fuel -->
+      <div class="filter-group">
+        <label for="filter-fuel" class="filter-label">نوع الوقود</label>
+        <select id="filter-fuel" class="filter-select" onchange="applyFilters()" aria-label="اختر نوع الوقود">
+          <option value="">جميع أنواع الوقود</option>
+          <option value="petrol">بنزين</option>
+          <option value="diesel">ديزل</option>
+          <option value="hybrid">هجين</option>
+          <option value="electric">كهربائي</option>
+        </select>
+      </div>
+
+      <!-- Transmission -->
+      <div class="filter-group">
+        <label for="filter-trans" class="filter-label">ناقل الحركة</label>
+        <select id="filter-trans" class="filter-select" onchange="applyFilters()" aria-label="اختر نوع ناقل الحركة">
+          <option value="">جميع الأنواع</option>
+          <option value="automatic">أوتوماتيك</option>
+          <option value="manual">يدوي</option>
+        </select>
+      </div>
+
+      <!-- Category -->
+      <div class="filter-group">
+        <label for="filter-cat" class="filter-label">الفئة</label>
+        <select id="filter-cat" class="filter-select" onchange="applyFilters()" aria-label="اختر فئة السيارة">
+          <option value="">جميع الفئات</option>
+          <option value="Sedan">سيدان</option>
+          <option value="SUV">SUV</option>
+          <option value="Pickup">بيك أب</option>
+          <option value="Crossover">كروس أوفر</option>
+          <option value="Van">فان</option>
+          <option value="Hatchback">هاتشباك</option>
+          <option value="Coupe">كوبيه</option>
+          <option value="MPV">MPV</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CARS GRID ===== -->
+<main class="cars-section" id="main-content" aria-label="قائمة السيارات">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="cars-grid" id="cars-grid" role="list" aria-live="polite" aria-atomic="false">
+      <!-- Cards injected by JS -->
+    </div>
+    <!-- Empty state -->
+    <div class="empty-state hidden" id="empty-state" role="status" aria-live="polite">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <h3>لا توجد نتائج</h3>
+      <p>لم يتم العثور على سيارات تطابق معايير البحث. جرب تغيير الفلاتر.</p>
+      <button onclick="resetFilters()" class="btn-primary">إعادة تعيين الفلاتر</button>
+    </div>
+  </div>
+</main>
+
+<!-- ===== BRANDS SECTION ===== -->
+<section class="brands-section" id="brands" aria-label="الماركات المتاحة">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-header">
+      <h2 class="section-title">أشهر الماركات</h2>
+      <p class="section-subtitle">نوفر أفضل الماركات العالمية الموثوقة في السوق السعودي</p>
+    </div>
+    <div class="brands-grid" role="list">
+      <button class="brand-chip" onclick="filterByBrand('toyota')" role="listitem" aria-label="تويوتا">
+        <span class="brand-chip-icon">🇯🇵</span>
+        <span>تويوتا</span>
+      </button>
+      <button class="brand-chip" onclick="filterByBrand('hyundai')" role="listitem" aria-label="هيونداي">
+        <span class="brand-chip-icon">🇰🇷</span>
+        <span>هيونداي</span>
+      </button>
+      <button class="brand-chip" onclick="filterByBrand('kia')" role="listitem" aria-label="كيا">
+        <span class="brand-chip-icon">🇰🇷</span>
+        <span>كيا</span>
+      </button>
+      <button class="brand-chip" onclick="filterByBrand('nissan')" role="listitem" aria-label="نيسان">
+        <span class="brand-chip-icon">🇯🇵</span>
+        <span>نيسان</span>
+      </button>
+      <button class="brand-chip brand-chip-premium" onclick="filterByBrand('mercedes')" role="listitem" aria-label="مرسيدس">
+        <span class="brand-chip-icon">🇩🇪</span>
+        <span>مرسيدس</span>
+      </button>
+      <button class="brand-chip brand-chip-premium" onclick="filterByBrand('bmw')" role="listitem" aria-label="BMW">
+        <span class="brand-chip-icon">🇩🇪</span>
+        <span>BMW</span>
+      </button>
+      <button class="brand-chip brand-chip-premium" onclick="filterByBrand('lexus')" role="listitem" aria-label="لكزس">
+        <span class="brand-chip-icon">🇯🇵</span>
+        <span>لكزس</span>
+      </button>
+      <button class="brand-chip" onclick="filterByBrand('mg')" role="listitem" aria-label="MG">
+        <span class="brand-chip-icon">🇬🇧</span>
+        <span>MG</span>
+      </button>
+      <button class="brand-chip" onclick="filterByBrand('geely')" role="listitem" aria-label="جيلي">
+        <span class="brand-chip-icon">🇨🇳</span>
+        <span>جيلي</span>
+      </button>
+      <button class="brand-chip" onclick="filterByBrand('chery')" role="listitem" aria-label="شيري">
+        <span class="brand-chip-icon">🇨🇳</span>
+        <span>شيري</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / CTA ===== -->
+<section class="contact-section" id="contact" aria-label="تواصل معنا">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="contact-icon" aria-hidden="true">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+    <h2 class="contact-title">هل تريد الاستفسار عن سيارة؟</h2>
+    <p class="contact-subtitle">تواصل معنا مباشرة عبر واتساب للحصول على أفضل الأسعار والعروض المميزة</p>
+    <a href="https://wa.me/966545888559?text=مرحباً، أريد الاستفسار عن السيارات المتاحة" target="_blank" rel="noopener" class="contact-cta-btn" aria-label="تواصل عبر واتساب الآن">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      ابدأ المحادثة الآن
+    </a>
+    <p class="contact-note">الرقم: <a href="tel:+966545888559" class="contact-phone" dir="ltr">+966 545 888 559</a></p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo" aria-label="أوتو ماركت" style="display:flex;align-items:center;gap:10px;">
+          <svg viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="36" height="24" style="flex-shrink:0;">
+            <rect x="3" y="12" width="38" height="12" rx="3" fill="currentColor" opacity="0.15"/>
+            <path d="M8 12 L11 6 L33 6 L39 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <rect x="3" y="12" width="38" height="11" rx="3" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="11" cy="25" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="33" cy="25" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          <span style="font-size:16px;font-weight:700;color:rgba(255,255,255,0.8);">أوتو ماركت</span>
+        </div>
+        <p class="footer-tagline">المنصة الرائدة لتسويق السيارات في المملكة العربية السعودية</p>
+      </div>
+      <div class="footer-links">
+        <h3 class="footer-heading">روابط سريعة</h3>
+        <ul class="footer-nav">
+          <li><a href="index.html">الصفحة الرئيسية</a></li>
+          <li><a href="#brands">الماركات</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3 class="footer-heading">تواصل معنا</h3>
+        <a href="https://wa.me/966545888559" target="_blank" rel="noopener" class="footer-wa-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          966545888559+
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 أوتو ماركت — جميع الحقوق محفوظة</p>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="footer-pplx">
+        Created with Perplexity Computer
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/966545888559?text=مرحباً، أريد الاستفسار عن السيارات" target="_blank" rel="noopener" class="floating-wa" aria-label="تواصل عبر واتساب">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="floating-wa-pulse" aria-hidden="true"></span>
+</a>
+
+<script src="cars.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

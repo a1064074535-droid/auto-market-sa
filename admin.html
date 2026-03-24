@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم — أوتو ماركت</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Tajawal', sans-serif; direction: rtl; background: #0f172a; min-height: 100vh; }
+
+  /* ── LOGIN SCREEN ── */
+  #login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0c2340 0%, #0f172a 100%);
+  }
+  .login-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+  }
+  .login-logo {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .login-logo h1 { font-size: 1.75rem; font-weight: 800; color: #fff; }
+  .login-logo p  { font-size: 0.875rem; color: #64748b; margin-top: 6px; }
+  .login-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,146,42,0.15);
+    border: 1px solid rgba(201,146,42,0.4);
+    color: #fbbf24;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .form-label { display: block; font-size: 0.875rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
+  .form-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #0f172a;
+    border: 1.5px solid #334155;
+    border-radius: 10px;
+    color: #e2e8f0;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-input:focus { border-color: #c9922a; }
+  .login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #c9922a, #b07d20);
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.2s, transform 0.2s;
+    margin-top: 24px;
+  }
+  .login-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+  .login-error { color: #f87171; font-size: 0.875rem; text-align: center; margin-top: 12px; display: none; }
+
+  /* ── ADMIN LAYOUT ── */
+  #admin-screen { display: none; min-height: 100vh; background: #0f172a; }
+
+  /* Top Bar */
+  .admin-topbar {
+    background: #0c2340;
+    border-bottom: 2px solid #c9922a;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .topbar-brand { display: flex; align-items: center; gap: 10px; color: white; font-size: 1.1rem; font-weight: 800; }
+  .admin-badge {
+    background: rgba(201,146,42,0.2);
+    color: #fbbf24;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border: 1px solid rgba(201,146,42,0.4);
+  }
+  .topbar-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(239,68,68,0.15);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.3);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-logout:hover { background: rgba(239,68,68,0.25); }
+
+  /* Stats Bar */
+  .stats-bar {
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+    padding: 16px 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 10px 16px;
+  }
+  .stat-chip-num { font-size: 1.25rem; font-weight: 800; color: #fbbf24; }
+  .stat-chip-label { font-size: 0.8rem; color: #64748b; }
+
+  /* Content */
+  .admin-content { padding: 24px; max-width: 1400px; margin: 0 auto; }
+
+  /* Toolbar */
+  .admin-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .toolbar-search {
+    flex: 1;
+    min-width: 200px;
+    max-width: 360px;
+    position: relative;
+  }
+  .toolbar-search input {
+    width: 100%;
+    padding: 10px 16px 10px 40px;
+    background: #1e293b;
+    border: 1.5px solid #334155;
+    border-radius: 10px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .toolbar-search input:focus { border-color: #c9922a; }
+  .toolbar-search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: #475569; pointer-events: none; }
+  .btn-add {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0c2340, #1a3a6e);
+    color: white;
+    border: 1px solid #1e4a8a;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-add:hover { background: #1a3a6e; transform: translateY(-1px); }
+
+  /* Cars Table */
+  .cars-table-wrap {
+    background: #1e293b;
+    border-radius: 14px;
+    border: 1px solid #334155;
+    overflow: hidden;
+  }
+  .cars-table { width: 100%; border-collapse: collapse; }
+  .cars-table th {
+    background: #0c2340;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 12px 16px;
+    text-align: right;
+    border-bottom: 1px solid #334155;
+    white-space: nowrap;
+  }
+  .cars-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #1e3050;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+  }
+  .cars-table tr:last-child td { border-bottom: none; }
+  .cars-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .car-img-thumb {
+    width: 72px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #0f172a;
+  }
+  .car-name-cell { font-weight: 700; color: #e2e8f0; }
+  .car-name-cell small { display: block; color: #64748b; font-size: 0.75rem; font-weight: 400; }
+  .price-cell { color: #fbbf24; font-weight: 700; direction: ltr; text-align: right; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .badge-petrol  { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .badge-diesel  { background: rgba(99,102,241,0.15);  color: #818cf8; }
+  .badge-hybrid  { background: rgba(34,197,94,0.15);   color: #4ade80; }
+  .badge-electric{ background: rgba(6,182,212,0.15);   color: #22d3ee; }
+
+  /* Action buttons */
+  .btn-edit {
+    padding: 6px 12px;
+    background: rgba(59,130,246,0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 7px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+  .btn-edit:hover { background: rgba(59,130,246,0.25); }
+  .btn-delete {
+    padding: 6px 12px;
+    background: rgba(239,68,68,0.1);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.25);
+    border-radius: 7px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+    margin-right: 6px;
+  }
+  .btn-delete:hover { background: rgba(239,68,68,0.2); }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  }
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #334155;
+    position: sticky;
+    top: 0;
+    background: #1e293b;
+    z-index: 1;
+  }
+  .modal-title { font-size: 1.1rem; font-weight: 800; color: #e2e8f0; }
+  .modal-close {
+    width: 32px; height: 32px;
+    background: #334155;
+    color: #94a3b8;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border: none;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: #475569; color: white; }
+  .modal-body { padding: 24px; }
+  .modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid #334155;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  /* Form Grid */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .modal-label { font-size: 0.8rem; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; }
+  .modal-input, .modal-select, .modal-textarea {
+    padding: 10px 14px;
+    background: #0f172a;
+    border: 1.5px solid #334155;
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .modal-input:focus, .modal-select:focus, .modal-textarea:focus { border-color: #c9922a; }
+  .modal-textarea { resize: vertical; min-height: 80px; }
+  .section-divider {
+    grid-column: 1/-1;
+    padding: 8px 0 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #c9922a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 4px;
+  }
+
+  /* Img preview */
+  .img-preview {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #0f172a;
+    margin-top: 8px;
+    border: 1px solid #334155;
+  }
+
+  /* Buttons */
+  .btn-primary-gold {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #c9922a, #b07d20);
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+  .btn-primary-gold:hover { opacity: 0.9; }
+  .btn-cancel {
+    padding: 10px 24px;
+    background: #334155;
+    color: #94a3b8;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .btn-cancel:hover { background: #475569; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1e293b;
+    border: 1px solid #4ade80;
+    color: #4ade80;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 999;
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.error { border-color: #f87171; color: #f87171; }
+
+  /* Pagination */
+  .pagination { display: flex; align-items: center; gap: 8px; justify-content: center; margin-top: 20px; }
+  .page-btn {
+    padding: 8px 14px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+  .page-btn:hover { background: #334155; color: white; }
+  .page-btn.active { background: #c9922a; border-color: #c9922a; color: white; font-weight: 700; }
+
+  /* Delete confirm */
+  .confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .confirm-overlay.open { display: flex; }
+  .confirm-box {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  .confirm-icon { font-size: 3rem; margin-bottom: 16px; }
+  .confirm-title { font-size: 1.1rem; font-weight: 800; color: #e2e8f0; margin-bottom: 8px; }
+  .confirm-msg { color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
+  .confirm-actions { display: flex; gap: 12px; justify-content: center; }
+
+  @media (max-width: 768px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+    .cars-table th:nth-child(3),
+    .cars-table td:nth-child(3),
+    .cars-table th:nth-child(5),
+    .cars-table td:nth-child(5) { display: none; }
+    .admin-content { padding: 12px; }
+    .stats-bar { padding: 12px; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ LOGIN ═══════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="login-badge">🔐 لوحة التحكم</div>
+      <h1>أوتو ماركت</h1>
+      <p>تسجيل الدخول للوصول إلى لوحة التحكم</p>
+    </div>
+    <div style="margin-bottom:16px;">
+      <label class="form-label">اسم المستخدم</label>
+      <input type="text" id="login-user" class="form-input" value="admin" readonly>
+    </div>
+    <div>
+      <label class="form-label">كلمة المرور</label>
+      <input type="password" id="login-pass" class="form-input" placeholder="أدخل كلمة المرور"
+        onkeydown="if(event.key==='Enter')doLogin()">
+    </div>
+    <div id="login-error" class="login-error">❌ كلمة المرور غير صحيحة</div>
+    <button class="login-btn" onclick="doLogin()">
+      <span>🔓 دخول</span>
+    </button>
+    <p style="text-align:center;color:#334155;font-size:0.75rem;margin-top:20px;">
+      <a href="index.html" style="color:#475569;text-decoration:none;">← العودة للموقع الرئيسي</a>
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ ADMIN ═══════════════════════════════════════ -->
+<div id="admin-screen">
+
+  <!-- Top Bar -->
+  <header class="admin-topbar">
+    <div class="topbar-brand">
+      <svg width="28" height="28" viewBox="0 0 52 38" fill="none">
+        <rect x="4" y="14" width="44" height="14" rx="4" fill="white" opacity="0.15"/>
+        <path d="M10 14 L14 7 L38 7 L46 14" stroke="white" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+        <rect x="4" y="14" width="44" height="13" rx="4" stroke="white" stroke-width="2.5" fill="none"/>
+        <circle cx="13" cy="29" r="5" stroke="white" stroke-width="2.5" fill="none"/>
+        <circle cx="39" cy="29" r="5" stroke="white" stroke-width="2.5" fill="none"/>
+      </svg>
+      أوتو ماركت
+      <span class="admin-badge">ADMIN</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="index.html" target="_blank"
+        style="color:#64748b;font-size:0.85rem;text-decoration:none;display:flex;align-items:center;gap:6px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        عرض الموقع
+      </a>
+      <button class="btn-logout" onclick="doLogout()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        خروج
+      </button>
+    </div>
+  </header>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-chip">
+      <div>
+        <div class="stat-chip-num" id="stat-total">0</div>
+        <div class="stat-chip-label">إجمالي السيارات</div>
+      </div>
+    </div>
+    <div class="stat-chip">
+      <div>
+        <div class="stat-chip-num" id="stat-brands">0</div>
+        <div class="stat-chip-label">الماركات</div>
+      </div>
+    </div>
+    <div class="stat-chip">
+      <div>
+        <div class="stat-chip-num" id="stat-min-price">0</div>
+        <div class="stat-chip-label">أقل سعر (ريال)</div>
+      </div>
+    </div>
+    <div class="stat-chip">
+      <div>
+        <div class="stat-chip-num" id="stat-max-price">0</div>
+        <div class="stat-chip-label">أعلى سعر (ريال)</div>
+      </div>
+    </div>
+    <div class="stat-chip" style="margin-right:auto;">
+      <div>
+        <div class="stat-chip-num" id="stat-modified" style="color:#4ade80;">محفوظ</div>
+        <div class="stat-chip-label">حالة التعديلات</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="admin-content">
+    <!-- Toolbar -->
+    <div class="admin-toolbar">
+      <div class="toolbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="admin-search" placeholder="ابحث عن سيارة..." oninput="renderTable()">
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <select id="admin-filter-brand" onchange="renderTable()"
+          style="padding:10px 14px;background:#1e293b;border:1.5px solid #334155;border-radius:10px;color:#e2e8f0;font-family:inherit;font-size:0.875rem;outline:none;cursor:pointer;">
+          <option value="">جميع الماركات</option>
+        </select>
+        <button class="btn-add" onclick="openAddModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          إضافة سيارة
+        </button>
+        <button onclick="resetToDefault()"
+          style="padding:10px 16px;background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.25);border-radius:10px;font-family:inherit;font-size:0.875rem;cursor:pointer;font-weight:600;">
+          ↺ إعادة تعيين
+        </button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="cars-table-wrap">
+      <table class="cars-table">
+        <thead>
+          <tr>
+            <th style="width:80px;">الصورة</th>
+            <th>اسم السيارة</th>
+            <th>الماركة</th>
+            <th>السنة</th>
+            <th>الفئة</th>
+            <th>السعر (ريال)</th>
+            <th>الوقود</th>
+            <th style="width:130px;">الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody id="cars-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div id="pagination" class="pagination"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ EDIT/ADD MODAL ═══════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title">تعديل السيارة</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="car-form" onsubmit="return false;">
+        <input type="hidden" id="form-id">
+        <div class="form-grid">
+
+          <!-- Basic Info -->
+          <div class="section-divider">المعلومات الأساسية</div>
+
+          <div class="form-group">
+            <label class="modal-label">الاسم بالعربي</label>
+            <input type="text" id="form-nameAr" class="modal-input" placeholder="مثال: تويوتا كامري">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">الاسم بالإنجليزي</label>
+            <input type="text" id="form-nameEn" class="modal-input" placeholder="Toyota Camry">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">الماركة (عربي)</label>
+            <input type="text" id="form-brand" class="modal-input" placeholder="تويوتا">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">Make (English)</label>
+            <input type="text" id="form-make_en" class="modal-input" placeholder="Toyota">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">الموديل (عربي)</label>
+            <input type="text" id="form-model_ar" class="modal-input" placeholder="كامري">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">Model (English)</label>
+            <input type="text" id="form-model_en" class="modal-input" placeholder="Camry">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">سنة الصنع</label>
+            <input type="number" id="form-year" class="modal-input" placeholder="2025" min="2000" max="2030">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">الفئة (Body Type)</label>
+            <select id="form-body_type" class="modal-select">
+              <option>Sedan</option><option>SUV</option><option>Pickup</option>
+              <option>Crossover</option><option>Hatchback</option><option>Coupe</option>
+              <option>Van</option><option>MPV</option>
+            </select>
+          </div>
+
+          <!-- Pricing -->
+          <div class="section-divider">التسعير</div>
+
+          <div class="form-group">
+            <label class="modal-label">السعر (ريال سعودي)</label>
+            <input type="number" id="form-price" class="modal-input" placeholder="119900" min="0">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">الدرجة / الفئة (Trim)</label>
+            <input type="text" id="form-trim" class="modal-input" placeholder="XLE / VX / Premium">
+          </div>
+
+          <!-- Engine -->
+          <div class="section-divider">مواصفات المحرك</div>
+
+          <div class="form-group">
+            <label class="modal-label">سعة المحرك (سي سي)</label>
+            <input type="number" id="form-engine_cc" class="modal-input" placeholder="2487">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">عدد الأسطوانات</label>
+            <input type="number" id="form-cylinders" class="modal-input" placeholder="4">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">الأحصنة (HP)</label>
+            <input type="number" id="form-horsepower_hp" class="modal-input" placeholder="203">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">العزم (نيوتن.م)</label>
+            <input type="number" id="form-torque_nm" class="modal-input" placeholder="250">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">نوع الوقود</label>
+            <select id="form-fuel_type" class="modal-select">
+              <option value="Petrol">بنزين</option>
+              <option value="Diesel">ديزل</option>
+              <option value="Hybrid">هجين</option>
+              <option value="Electric">كهربائي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="modal-label">ناقل الحركة</label>
+            <select id="form-transmission" class="modal-select">
+              <option value="Automatic">أوتوماتيك</option>
+              <option value="Manual">يدوي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="modal-label">نظام القيادة</label>
+            <select id="form-drive_type" class="modal-select">
+              <option>FWD</option><option>RWD</option><option>AWD</option><option>4WD</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="modal-label">كفاءة الوقود (كم/لتر)</label>
+            <input type="number" id="form-economy" class="modal-input" step="0.1" placeholder="14.5">
+          </div>
+
+          <!-- Dimensions -->
+          <div class="section-divider">المواصفات الجسدية</div>
+
+          <div class="form-group">
+            <label class="modal-label">عدد المقاعد</label>
+            <input type="number" id="form-seats" class="modal-input" placeholder="5">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">عدد الأبواب</label>
+            <input type="number" id="form-doors" class="modal-input" placeholder="4">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">تقييم السلامة (1-5)</label>
+            <input type="number" id="form-safety" class="modal-input" min="1" max="5" placeholder="5">
+          </div>
+          <div class="form-group">
+            <label class="modal-label">سعة الصندوق (لتر)</label>
+            <input type="number" id="form-cargo" class="modal-input" placeholder="401">
+          </div>
+
+          <!-- Image -->
+          <div class="section-divider">الصورة</div>
+
+          <div class="form-group full">
+            <label class="modal-label">رابط الصورة الرئيسية</label>
+            <input type="url" id="form-image" class="modal-input"
+              placeholder="https://images.unsplash.com/..."
+              oninput="updateImgPreview()">
+            <img id="img-preview" class="img-preview" src="" alt="معاينة الصورة"
+              onerror="this.style.display='none'" style="display:none;">
+          </div>
+          <div class="form-group full">
+            <label class="modal-label">رابط الصورة 2 (اختياري)</label>
+            <input type="url" id="form-image2" class="modal-input" placeholder="https://...">
+          </div>
+          <div class="form-group full">
+            <label class="modal-label">رابط الصورة 3 (اختياري)</label>
+            <input type="url" id="form-image3" class="modal-input" placeholder="https://...">
+          </div>
+
+          <!-- Description -->
+          <div class="section-divider">الوصف والمميزات</div>
+
+          <div class="form-group full">
+            <label class="modal-label">الوصف بالعربية</label>
+            <textarea id="form-description" class="modal-textarea"
+              placeholder="وصف مختصر للسيارة..."></textarea>
+          </div>
+          <div class="form-group full">
+            <label class="modal-label">المميزات (سطر لكل ميزة)</label>
+            <textarea id="form-features" class="modal-textarea" style="min-height:120px;"
+              placeholder="شاشة لمس 10 بوصة&#10;كاميرا 360 درجة&#10;نظام صوتي..."></textarea>
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">إلغاء</button>
+      <button class="btn-primary-gold" onclick="saveCar()">💾 حفظ التغييرات</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ DELETE CONFIRM ═══════════════════════════════════════ -->
+<div class="confirm-overlay" id="confirm-overlay">
+  <div class="confirm-box">
+    <div class="confirm-icon">🗑️</div>
+    <div class="confirm-title">حذف السيارة</div>
+    <div class="confirm-msg" id="confirm-msg">هل أنت متأكد من حذف هذه السيارة؟ لا يمكن التراجع.</div>
+    <div class="confirm-actions">
+      <button class="btn-cancel" onclick="closeConfirm()">إلغاء</button>
+      <button style="padding:10px 24px;background:linear-gradient(135deg,#dc2626,#b91c1c);color:white;border-radius:8px;border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:0.9rem;"
+        onclick="confirmDelete()">نعم، احذف</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="cars.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
