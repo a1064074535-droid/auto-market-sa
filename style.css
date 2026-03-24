@@ -1072,3 +1072,17 @@ p { text-wrap: pretty; }
   .hero-stat-num { font-size: var(--text-lg); }
   .filters-section { top: 60px; }
 }
+
+/* ===== SAR SYMBOL LEFT ===== */
+.car-card-price {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 4px;
+  justify-content: flex-end;
+}
+.car-card-price .sar-symbol {
+  order: -1;
+  font-size: 0.85em;
+  font-weight: 600;
+}
