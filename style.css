@@ -1096,3 +1096,78 @@ p { text-wrap: pretty; }
   text-align: right;
   unicode-bidi: plaintext;
 }
+
+/* ===== PRICE TICKER STRIP ===== */
+.price-ticker-wrapper {
+  background: linear-gradient(135deg, #061222 0%, #0a1d36 50%, #061222 100%);
+  border-top: 2px solid var(--gold-400);
+  border-bottom: 2px solid var(--gold-400);
+  overflow: hidden;
+  padding: 10px 0;
+  position: relative;
+  z-index: 50;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.price-ticker-label {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--gold-400);
+  color: #061222;
+  font-weight: 800;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+.price-ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  animation: tickerScroll 60s linear infinite;
+  padding-left: 100%;
+}
+.price-ticker-track:hover {
+  animation-play-state: paused;
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 24px;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+  border-left: 1px solid rgba(251,191,36,0.2);
+  direction: ltr;
+}
+.ticker-item .ticker-car-name {
+  color: var(--gold-300);
+  font-weight: 700;
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+.ticker-item .ticker-brand {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+.ticker-item .ticker-price {
+  color: #4ade80;
+  font-weight: 800;
+  font-size: 0.88rem;
+  direction: ltr;
+}
+.ticker-item .ticker-sep {
+  color: var(--gold-400);
+  margin: 0 4px;
+}
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
