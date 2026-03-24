@@ -1171,3 +1171,102 @@ p { text-wrap: pretty; }
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
+
+/* ===== BRAND COLOR THEMING FOR CAR DETAIL PAGE ===== */
+
+/* CSS variables applied dynamically by JS - default values */
+:root {
+  --brand-primary:   #D4A017;
+  --brand-secondary: #1A1A1A;
+  --brand-light:     #fdf5e0;
+  --brand-text:      #B8860B;
+}
+
+/* ---- Hero section brand color strip ---- */
+#car-detail .detail-hero {
+  border-top: 5px solid var(--brand-primary);
+  position: relative;
+}
+
+/* Brand badge in hero */
+#car-detail .brand-badge {
+  background: var(--brand-primary) !important;
+  color: #fff !important;
+  border-color: var(--brand-primary) !important;
+}
+
+/* Price value uses brand color */
+#car-detail .price-value {
+  color: var(--brand-primary) !important;
+}
+
+/* CTA WhatsApp button: border uses brand color */
+#car-detail .btn-primary {
+  background: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--brand-primary) 40%, transparent) !important;
+}
+#car-detail .btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Spec section header bar */
+#car-detail .specs-section h3,
+#car-detail .section-title {
+  border-right: 4px solid var(--brand-primary);
+  padding-right: 12px;
+  color: var(--brand-text) !important;
+}
+
+/* Spec item icon color */
+#car-detail .spec-icon {
+  color: var(--brand-primary);
+}
+
+/* Features badge */
+#car-detail .feature-badge {
+  background: color-mix(in srgb, var(--brand-primary) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand-primary) 30%, transparent);
+  color: var(--brand-text);
+}
+
+/* Detail card top accent */
+#car-detail .detail-card {
+  border-top: 3px solid var(--brand-primary);
+}
+
+/* Breadcrumb active item */
+.breadcrumb-item.active {
+  color: var(--brand-text);
+}
+
+/* Header scroll brand accent */
+#main-header.scrolled {
+  border-bottom-color: var(--brand-primary);
+}
+
+/* Star rating color */
+#car-detail .star.filled {
+  color: var(--brand-primary) !important;
+}
+
+/* Related cards hover border */
+#related-grid .car-card:hover {
+  border-color: var(--brand-primary);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--brand-primary) 20%, transparent);
+}
+
+/* Body background tint on car detail page */
+body:has(#car-detail:not(.hidden)) {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--brand-light) 60%, transparent) 0%,
+    var(--color-bg-page, #f4f6f9) 300px
+  );
+}
+
+/* Smooth transition for color changes */
+#car-detail,
+#car-detail * {
+  transition: border-color 0.4s ease, background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
