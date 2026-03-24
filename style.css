@@ -1086,3 +1086,13 @@ p { text-wrap: pretty; }
   font-size: 0.85em;
   font-weight: 600;
 }
+
+/* ===== PRICE DIRECTION FIX ===== */
+.car-card-price,
+.price-value,
+.detail-price,
+[class*="price"] {
+  direction: ltr !important;
+  text-align: right;
+  unicode-bidi: bidi-override;
+}
