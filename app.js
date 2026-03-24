@@ -217,3 +217,37 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGrid(_carsData);
   updateResultsCount(_carsData.length);
 });
+
+// ===== PRICE TICKER STRIP =====
+(function initPriceTicker() {
+  function buildTicker() {
+    var track = document.getElementById('tickerTrack');
+    if (!track) return;
+    // Get all cars from _carsData (the main cars array)
+    var cars = (typeof _carsData !== 'undefined') ? _carsData : [];
+    if (!cars.length) return;
+    // Build ticker items
+    var html = '';
+    cars.forEach(function(car) {
+      var price = car.price || 0;
+      var priceStr = price.toLocaleString('en-US');
+      var name = car.nameAr || car.name || '';
+      var brand = car.brandAr || car.brand || '';
+      html += '<span class="ticker-item">';
+      html += '<span class="ticker-brand">' + brand + '</span>';
+      html += '<span class="ticker-sep">|</span>';
+      html += '<span class="ticker-car-name">' + name + '</span>';
+      html += '<span class="ticker-sep">&bull;</span>';
+      html += '<span class="ticker-price" dir="ltr">' + priceStr + ' &#x631;&#x64A;&#x627;&#x644; &#x633;&#x639;&#x648;&#x62F;&#x64A;</span>';
+      html += '</span>';
+    });
+    // Duplicate for seamless loop
+    track.innerHTML = html + html;
+    // Adjust animation duration based on number of items
+    var duration = Math.max(40, cars.length * 2);
+    track.style.animationDuration = duration + 's';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(buildTicker, 600);
+  });
+})();
