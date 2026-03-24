@@ -221,8 +221,8 @@ function renderCarDetail(car) {
       </div>
     </div>`;
 
-  applyBrandTheme(brandEn);   loading?.classList.add('hidden');
-  container.classList.remove('hidden');
+  try { applyBrandTheme(brandEn); } catch(e) {} loading?.classList.add('hidden');
+  try { applyBrandTheme(brandEn); } catch(e) {} container.classList.remove('hidden');
 }
 
 function renderRelated(currentCar) {
