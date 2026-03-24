@@ -224,15 +224,15 @@ document.addEventListener('DOMContentLoaded', () => {
     var track = document.getElementById('tickerTrack');
     if (!track) return;
     // Get all cars from _carsData (the main cars array)
-    var cars = (typeof _carsData !== 'undefined') ? _carsData : [];
+    var cars = (window._carsData || []);
     if (!cars.length) return;
     // Build ticker items
     var html = '';
     cars.forEach(function(car) {
-      var price = car.price || 0;
+      var price = car.price_sar || 0;
       var priceStr = price.toLocaleString('en-US');
-      var name = car.nameAr || car.name || '';
-      var brand = car.brandAr || car.brand || '';
+      var name = car.model_ar || car.model_en || '';
+      var brand = car.make_ar || car.make_en || '';
       html += '<span class="ticker-item">';
       html += '<span class="ticker-brand">' + brand + '</span>';
       html += '<span class="ticker-sep">|</span>';
