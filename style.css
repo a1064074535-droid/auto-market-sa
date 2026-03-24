@@ -1,3 +1,8 @@
+/* Force English/Latin numerals */
+* { font-variant-numeric: normal !important; font-feature-settings: 'locl' 0; }
+:root { --font-numeric: 'Roboto', sans-serif; }
+.price, .year, .stat-number, [class*="price"], [class*="year"], [class*="stat"], input, .badge, .car-year, .car-price, .specs-value, .detail-value { font-family: 'Roboto', Arial, sans-serif !important; }
+
 /* ====================================================
    AUTO MARKET SA — Custom Stylesheet
    RTL Arabic Design — Navy + Gold Color Scheme
