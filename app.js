@@ -83,7 +83,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== HELPERS =====
-function formatPrice(p) { return String(p).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ﷼'; }
+function formatPrice(p) { return String(p).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ر.س'; }
 
 function getFuelIcon(f) {
   const m = { petrol: '⛽', diesel: '🛢️', hybrid: '♻️', electric: '⚡' };
@@ -125,7 +125,7 @@ function renderCarCard(car, delay = 0) {
         <div class="car-card-header">
           <h3 class="car-card-name">${nameAr}</h3>
         </div>
-        <div class="car-card-price" dir="ltr"><span>﷼</span>${String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
+        <div class="car-card-price" dir="ltr">ر.س ${String(price).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</div>
         <div class="car-card-specs">
           ${engine ? `<div class="car-spec-tag"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg> ${engine}</div>` : ''}
           <div class="car-spec-tag">${getFuelIcon(fuel)} ${fuelLabel}</div>
