@@ -83,7 +83,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== HELPERS =====
-function formatPrice(p) { return p.toLocaleString('en-US') + ' ﷼'; }
+function formatPrice(p) { return String(p).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ﷼'; }
 
 function getFuelIcon(f) {
   const m = { petrol: '⛽', diesel: '🛢️', hybrid: '♻️', electric: '⚡' };
