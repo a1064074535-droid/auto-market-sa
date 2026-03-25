@@ -1129,7 +1129,7 @@ p { text-wrap: pretty; }
   align-items: center;
   gap: 0;
   white-space: nowrap;
-  animation: tickerScroll 60s linear infinite;
+  animation: tickerScroll 120s linear infinite;
   padding-left: 100%;
 }
 .price-ticker-track:hover {
